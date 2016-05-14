@@ -5,3 +5,6 @@
 .idea
 project/__pycache/
 project/__pycache__/*
+*__pycache__*
+db.sqlite3
+teecha/migrations/*
