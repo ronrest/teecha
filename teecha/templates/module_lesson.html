@@ -5,13 +5,12 @@
     <title>{{title}}</title>
 </head>
 <body>
-TODO: use reverse lookups to create the url links
 <ul>
  {% for lesson_item in lessons %}
   {% if lesson_item.id == lesson_id %}
-    <li>{{lesson_item.title}}......{{lesson_item.id}}</li>
+    <li>[{{lesson_item.id}}] {{lesson_item.title}}</li>
   {% else %}
-    <li><a href="">{{lesson_item.title}}......{{lesson_item.id}}</a></li>
+    <li><a href="{% url 'teecha:module_lesson' module=module_name lesson=lesson_item.name %}">[{{lesson_item.id}}] {{lesson_item.title}}</a></li>
   {% endif %}
  {% endfor %}
 </ul>
