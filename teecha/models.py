@@ -3,7 +3,7 @@ from django.db import models
 
 
 #===============================================================================
-#                                         Create a Model
+#                                                                         LESSON
 #===============================================================================
 class Lesson(models.Model):
     # name is here to make it easier to search for this lesson, and for a
