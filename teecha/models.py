@@ -89,4 +89,55 @@ class Lesson(models.Model):
                              # by their name. (not their id
 
 
+#===============================================================================
+#                                                                         MODULE
+#===============================================================================
+class Module(models.Model):
+    name = models.CharField(max_length=80, blank=False)
+    title = models.CharField(max_length=200, blank=False)
+
+    # Lessons need to be ordered in a specific way, so they will be liked using
+    # a 'through' Model
+    lessons = models.ManyToManyField(
+            Lesson,
+            through='ModuleLesson',
+            related_name='lesson',
+    )
+
+    # a publicly visible description
+    description = models.TextField(max_length=1024, blank=True, null=False)
+
+    # Description only seen by admin
+    hidden_description = models.TextField(max_length=512, blank=True,
+                                          null=False)
+
+    # --------------------------------------------------------------------------
+    #                                                           DATE TIME STAMPS
+    # --------------------------------------------------------------------------
+    # Publication date
+    published = models.DateTimeField(auto_now=False, auto_now_add=False)
+
+    # Time last updates (automatically populated)
+    updated = models.DateTimeField(auto_now=True, auto_now_add=False)
+
+
+#===============================================================================
+#                                                                  MODULE LESSON
+#===============================================================================
+class ModuleLesson(models.Model):
+    """ This is a "Through" model so we can order Lessons """
+    module = models.ForeignKey(Module)
+    lesson = models.ForeignKey(Lesson)
+    order = models.IntegerField(help_text=u"What order to display this lesson in the Module")
+
+    class Meta:
+        ordering = ["order",]
+
+    def __str__(self):
+        return "{mod} [{i}] {lesson}".format(mod=self.module.name,
+                                             lesson=self.lesson.name,
+                                             i=self.order)
+
+    def __unicode__(self):
+        return self.__str__()
 
