@@ -5,6 +5,17 @@
     <title>{{title}}</title>
 </head>
 <body>
+TODO: use reverse lookups to create the url links
+<ul>
+ {% for lesson_item in lessons %}
+  {% if lesson_item.id == lesson_id %}
+    <li>{{lesson_item.title}}......{{lesson_item.id}}</li>
+  {% else %}
+    <li><a href="">{{lesson_item.title}}......{{lesson_item.id}}</a></li>
+  {% endif %}
+ {% endfor %}
+</ul>
+<hr>
 {% include "lesson_snippet.html" %}
 
 </body>
