@@ -6,20 +6,45 @@ from django.db import models
 #                                         Create a Model
 #===============================================================================
 class Lesson(models.Model):
-    # --------------------------------------------------------------------------
-    #                                                            REQUIRED FIELDS
-    # --------------------------------------------------------------------------
-    name = models.CharField(max_length=100, blank=False)
-    title = models.CharField(max_length=200, blank=False)
-    short_description = models.CharField(max_length=250, blank=False)
+    # name is here to make it easier to search for this lesson, and for a
+    # more meaningful short descriptor than an ID number
+    #
+    # TODO: restrict lesson name to not contain any spaces, commas,
+    #       forward slashes,colons, semi colons or other chars that
+    #       might not filename friendly
+    name = models.CharField(max_length=80, blank=False)
 
     # --------------------------------------------------------------------------
-    #                                                            OPTIONAL FIELDS
+    #                                                               TEXT CONTENT
     # --------------------------------------------------------------------------
-    description = models.CharField(max_length=500, blank=True, null=False)
+    title = models.CharField(max_length=200, blank=False)
+
+    # The actual text content
     content = models.TextField(blank=True, null=False)
-    video = models.CharField(max_length=200, blank=True, null=False)
+
+    # a publicly visible description
+    description = models.TextField(max_length=1024, blank=True, null=False)
+
+    # Description only seen by admin
+    hidden_description = models.TextField(max_length=512, blank=True, null=False)
+
+    # --------------------------------------------------------------------------
+    #                                                              VIDEO CONTENT
+    # --------------------------------------------------------------------------
+    # Link to a video (if needed)
     # TODO: video will be a Foreing key to a video model later on.
+    video = models.CharField(max_length=200, blank=True, null=False)
+
+    # Set the options available for video service
+    LEGAL_VIDEO_SERVICES = (
+        ("youtube", "youtube"),
+        ("vimeo", "vimeo"),
+    )
+
+    video_service = models.CharField(max_length=50,
+                                     choices=LEGAL_VIDEO_SERVICES,
+                                     blank=False, null=False,
+                                     default="youtube")
 
     # --------------------------------------------------------------------------
     #                                                           DATE TIME STAMPS
@@ -51,6 +76,7 @@ class Lesson(models.Model):
 
     # instructor = TODO: add link to a User Model for the instructor.
 
+
     def __str__(self):
         return self.name
 
@@ -61,4 +87,6 @@ class Lesson(models.Model):
         ordering = ['name']  # Specifies the default ordering of Lesson objects
                              # when listed. Here we say they should be ordered
                              # by their name. (not their id
+
+
 
