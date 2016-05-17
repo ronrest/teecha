@@ -1,0 +1,8 @@
+{% block lesson %}
+
+<h1>{{title}}</h1>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/{{video}}" frameborder="0" allowfullscreen></iframe>
+<h2>Content</h2>
+{{content|safe}}
+
+{% endblock %}
