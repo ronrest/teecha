@@ -52,12 +52,12 @@ def lesson(request, id):
 
 
 # ==============================================================================
-#                                                                         LESSON
+#                                                                         MODULE
 # ==============================================================================
-def module(request, id):
-    # TODO: perform error checking to make sure lesson_id is a valid lesson id.
+def module(request, name):
+    # TODO: perform error checking to make sure module is a valid lesson id.
     #       eg, it must be an integer.
-    module = Module.objects.get(id=id)
+    module = Module.objects.get(name=name)
 
     context = {
         "title": module.title,
