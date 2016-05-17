@@ -15,4 +15,5 @@ class LessonAdmin(admin.ModelAdmin):
               )
 
 
-
+# Register your models here.
+admin.site.register(Lesson, LessonAdmin)
