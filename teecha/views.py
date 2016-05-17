@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse
 from django import template
 import markdown
-from .models import Lesson
+from .models import Lesson, Module, ModuleLesson
 
 register = template.Library()
 
@@ -49,4 +49,22 @@ def lesson(request, id):
     # video = lesson.video
 
     return render(request, template_name="lesson.html", context=context)
+
+
+# ==============================================================================
+#                                                                         LESSON
+# ==============================================================================
+def module(request, id):
+    # TODO: perform error checking to make sure lesson_id is a valid lesson id.
+    #       eg, it must be an integer.
+    module = Module.objects.get(id=id)
+
+    context = {
+        "title": module.title,
+        #"lessons": module.lessons.all().order_by("order"),
+        "lessons": module.lessons.all().order_by("modulelesson"),
+
+    }
+
+    return render(request, template_name="module.html", context=context)
 
