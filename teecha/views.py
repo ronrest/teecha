@@ -68,3 +68,27 @@ def module(request, name):
 
     return render(request, template_name="module.html", context=context)
 
+
+# ==============================================================================
+#                                                                  MODULE_LESSON
+# ==============================================================================
+def module_lesson(request, module, lesson):
+    # TODO: perform error checking to make sure module name and lesson name are
+    #       valid and exist.
+    module = Module.objects.get(name=module)
+    lessons = module.lessons.all()
+    lesson = module.lessons.get(name=lesson)
+
+    lesson_id = lesson.id
+
+    content = markdownify(lesson.content)
+    content = fix_lesson_urls(content, "/static/teecha/img")
+    context = {
+        "content": content,
+        "title": lesson.title,
+        "video": lesson.video,
+        "lessons": lessons,
+        "lesson_id": lesson_id,
+    }
+
+    return render(request, template_name="module_lesson.html", context=context)
