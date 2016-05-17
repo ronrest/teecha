@@ -98,6 +98,10 @@ class Lesson(models.Model):
 #===============================================================================
 class Module(models.Model):
     name = models.CharField(max_length=80, blank=False)
+    # TODO: place constraint so that it can only be named in the form
+    #       abc_001
+    #       where the first part must be lower case letters 2-5 long.
+    #       second part is digits 1-4 in length
     title = models.CharField(max_length=200, blank=False)
 
     # Lessons need to be ordered in a specific way, so they will be liked using
