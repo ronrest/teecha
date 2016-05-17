@@ -11,10 +11,11 @@ class Lesson(models.Model):
     #
     # TODO: restrict lesson name to not contain any spaces, commas,
     #       forward slashes,colons, semi colons or other chars that
+    #        might not filename friendly
     # TODO: Look into using slug field for accomplishing the above TODO. But
     #       see if hyphens can be replced with underscores instead. Also try
     #       to find a way to ensure uniqueness.
-    #       might not filename friendly
+    #
     name = models.CharField(max_length=80, blank=False)
 
     # --------------------------------------------------------------------------
