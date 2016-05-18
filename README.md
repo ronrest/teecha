@@ -11,7 +11,7 @@ ready to be used by anyone.
 The structure assumed is as follows: 
 
 A **lesson** is a small byte-sized concept that can be taught in a short 
-video or section of tutorial. It should prefereable only cover one 
+video or section of tutorial. Prefereably it should  only cover one 
 concept. 
 
 A **module** is a logically coherent set of lessons intended to teach some 
