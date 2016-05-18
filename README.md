@@ -5,7 +5,7 @@ This is a Django Web App for creating classes/tutorials using a
 breadcrumbs approach similar to the way Udacity breaks classes up into 
 small byte-sized pieces. 
 
-**NOTE: ** This project is at it's very infancy at the moment, it is not 
+**NOTE:** This project is at it's very infancy at the moment, it is not 
 ready to be used by anyone. 
 
 The structure assumed is as follows: 
