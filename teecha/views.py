@@ -76,7 +76,7 @@ def module_lesson(request, module, lesson):
     # TODO: perform error checking to make sure module name and lesson name are
     #       valid and exist.
     module = Module.objects.get(name=module)
-    lessons = module.lessons.all()
+    lessons = module.lessons.all().order_by("modulelesson__order")
     lesson = module.lessons.get(name=lesson)
 
     lesson_id = lesson.id
