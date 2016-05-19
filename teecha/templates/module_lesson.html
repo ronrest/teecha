@@ -1,23 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Portions of code on this page relating to the sidebar were derived from
+     from the following page:
+     http://blackrockdigital.github.io/startbootstrap-simple-sidebar/
+-->
 <head>
-    <meta charset="UTF-8">
-    <title>{{title}}</title>
+    <!------------------------------------------------------------------------->
+    <!--                                                                META -->
+    <!------------------------------------------------------------------------->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!------------------------------------------------------------------------->
+    <!--                                                             SCRIPTS -->
+    <!------------------------------------------------------------------------->
+    {% load static %}
+    <!-- JQuery JavaScript -->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!------------------------------------------------------------------------->
+    <!--                                                              STYLES -->
+    <!------------------------------------------------------------------------->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'teecha_style.css' %}" rel="stylesheet">
+
+    <!------------------------------------------------------------------------->
+    <!--                                                               TITLE -->
+    <!------------------------------------------------------------------------->
+    <!-- TODO: Add a title -->
+    <title>SOME TITLE</title>
 </head>
+
+
+
+
+
+
+<!--#########################################################################-->
+<!--#########################################################################-->
+<!--                                                                    BODY -->
+<!--#########################################################################-->
+<!--#########################################################################-->
 <body>
-<p>TODO: Add Previous and Next Buttons</p>
-<p>TODO: Format the list of lesson links into a more compact friendly form</p>
-<ul>
- {% for lesson_item in lessons %}
-  {% if lesson_item.id == lesson_id %}
-    <li>[{{lesson_item.id}}] {{lesson_item.title}}</li>
-  {% else %}
-    <li><a href="{% url 'teecha:module_lesson' module=module_name lesson=lesson_item.name %}">[{{lesson_item.id}}] {{lesson_item.title}}</a></li>
-  {% endif %}
- {% endfor %}
-</ul>
-<hr>
-{% include "lesson_snippet.html" %}
+<!--=========================================================================-->
+<!--                                                              TOP NAVBAR -->
+<!--=========================================================================-->
+<nav class="navbar navbar-fixed-top navbar-default" id="main_navbar">
+    <div class="container">
+        <!--------------------------------------------------------------------->
+        <!--                                                      NAV BUTTON -->
+        <!--------------------------------------------------------------------->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Website Title</a>
+        </div><!-- /.navbar-header -->
+
+        <!--------------------------------------------------------------------->
+        <!--                                                     NAV OPTIONS -->
+        <!--------------------------------------------------------------------->
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div><!-- /.nav-collapse -->
+    </div><!-- /.container -->
+</nav><!-- /.navbar -->
+<!-- END OF TOP NAVBAR -->
+
+
+<!--=========================================================================-->
+<!--                                                        SECONDARY NAVBAR -->
+<!--=========================================================================-->
+<nav class="navbar navbar-default secondary_nav_bar">
+    <div class=""><!--container-fluid-->
+        <div class="collapsed navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- TODO: Add the module name on the heading -->
+                <!-- TODO: Add the lesson number on the heading-->
+                <li class="navbar-text" id="submenu_heading">Tutorial on How to do Things (Lesson #NNN)</li>
+                <li class="">
+                    <div class="right_buttons">
+                        <!-- TODO: populate the next / previous links -->
+                        <button type="button" class="btn btn-default navbar-btn">Previous</button>
+                        <button type="button" class="btn btn-default navbar-btn">Next</button>
+                    </div><!-- /.right_buttons -->
+                </li>
+            </ul> <!-- /.navbar-nav -->
+        </div> <!-- /.collapsed navbar-collapse -->
+
+    </div>
+</nav><!-- /.secondary_nav_bar -->
+<!-- END SECONDARY NAVBAR -->
+
+
+<!-- TODO: add progress breadcrumbs widget -->
+
+<!--/////////////////////////////////////////////////////////////////////////-->
+<!--                                                              MIDSECTION -->
+<!--/////////////////////////////////////////////////////////////////////////-->
+<div class="midsection">
+    <!--=====================================================================-->
+    <!--                                                            SIDEBAR  -->
+    <!--=====================================================================-->
+    <nav id="sidebar_container">
+        <ul class="sidebar_nav">
+            <li class="sidebar_title">
+                <a href="#">
+                    <!-- TODO: Add module name -->
+                    Module Home Page
+                </a>
+            </li>
+            <!-- TODO: highlight past items a slightly different color to make it easy to know what items are in the past/future -->
+            {% for lesson_item in lessons %}
+              {% if lesson_item.id == lesson_id %}
+                <li class="active"><a href="#">{{lesson_item.title}}</a></li>
+              {% else %}
+                <li><a href="{% url 'teecha:module_lesson' module=module_name lesson=lesson_item.name %}">{{lesson_item.title}}</a></li>
+              {% endif %}
+             {% endfor %}
+        </ul><!-- /.sidebar_nav-->
+    </nav><!-- /.sidebar_container -->
+    <!-- END SIDEBAR -->
+
+
+    <!--=====================================================================-->
+    <!--                                                       TOGGLE BUTTON -->
+    <!--=====================================================================-->
+    <div class="btn btn-default btn-lg" id="side_menu_toggle_button">
+        <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+    </div>
+
+    <!--=====================================================================-->
+    <!--                                                     ACTUAL CONTENT  -->
+    <!--=====================================================================-->
+    <div class="page_content_container">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    {% include "lesson_snippet.html" %}
+                </div><!-- /.col-lg-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div><!-- /.page_content_container -->
+</div><!-- /.midsection -->
+<!-- END OF MIDSECTION -->
+
+
+<!--=========================================================================-->
+<!--                                                  SIDEBAR TOGGLE SCRIPT  -->
+<!--=========================================================================-->
+<script>
+/* -----------------------------------------------------------------------------
+ * Sidebar Toggle Script taken from
+ *   http://blackrockdigital.github.io/startbootstrap-simple-sidebar/
+ *--------------------------------------------------------------------------- */
+$("#side_menu_toggle_button").click(function(e) {
+    e.preventDefault();
+    $(".midsection").toggleClass("toggled");
+});
+</script>
 
 </body>
+
 </html>

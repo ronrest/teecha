@@ -1,0 +1,291 @@
+/*!
+ * Style for the sidebar was derived from:
+ *     http://blackrockdigital.github.io/startbootstrap-simple-sidebar/
+ *
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+
+/*============================================================================*/
+/*                                                           GLOBAL VARIABLES */
+/*============================================================================*/
+:root{
+    --myred: #FF4F40;
+    --mygreen: #73AD21;
+    --myblue: #1A94D6;
+
+    --menu_color: #F8F8F8;
+    --submenu_color:  #F8F8F8; /* #99C45B #555555;*/
+    --sidebar_color: var(--menu_color);
+
+    --nav_hover_color: #FF8000;
+    --nav_active_color: #5085DA;  /*#1A94D6;*/
+
+    --menu_text_color: #5934B2;
+    --submenu_text_color: var(--menu_text_color);
+
+    --body_color: #F3F3F3;
+    --text_color: #333333;
+    --bold_color: #111111;
+    --italic_color: #555555;
+
+    --sidemenu_width: 250px;
+
+}
+
+
+/*============================================================================*/
+/*                                                                MAIN NAVBAR */
+/*============================================================================*/
+#main_navbar{
+    background-color: var(--menu_color);
+    color: var(--menu_text_color);
+    border: 0px;
+}
+
+#main_navbar .navbar-nav  a{
+  color: var(--menu_text_color);
+}
+
+
+nav .active{
+    background-color: var(--nav_active_color);
+}
+
+
+#main_navbar .navbar-nav > .active > a{
+  color: #ebebeb;
+  background-color: var(--nav_active_color);
+}
+
+
+/*============================================================================*/
+/*                                                              SECONDARY BAR */
+/*============================================================================*/
+.secondary_nav_bar{
+    /*position: absolute;*/
+    /*position: fixed;*/
+    top: 50px;
+    background-color: var(--submenu_color);
+    border: 0px;
+    border-radius: 0px;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.right_buttons{
+    right: 0px;
+    float: right;
+}
+
+/* Had to set it up as an id so the color would work */
+#submenu_heading{
+    text-align: center;
+    font-weight: bold;
+    color: var(--submenu_text_color);
+}
+
+
+/*============================================================================*/
+/*                                                             TOGGLE BUTTON  */
+/*============================================================================*/
+#side_menu_toggle_button{
+    position: absolute;
+    position: fixed ;
+    z-index: 100;
+    width: 25px;
+    height:100px;
+    padding-left: 2px;
+
+    color: var(--menu_text_color);
+    background-color: var(--submenu_color);
+    border-width: 3px 3px 3px 0px;
+    border-color: var(--submenu_text_color);
+    border-radius: 0px 10px 10px 0px ;
+
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+
+/*============================================================================*/
+/*                                                                    SIDEBAR */
+/*============================================================================*/
+#sidebar_container {
+    position: fixed;
+    left: var(--sidemenu_width);
+    margin-left: calc(0px - var(--sidemenu_width));
+
+    border-style: solid;
+    border-width: 3px 3px 3px 0px;
+    border-color: var(--submenu_text_color);
+    border-radius: 0px 0px 20px 0px ;
+
+    background-color: var(--sidebar_color);
+
+    z-index: 1000;  /* Is above almost everything else */
+    height: calc(100vh - 100px);
+    overflow-x: hidden;          /* Avoid Horizontal Scrolling */
+    overflow-y: auto;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+
+.sidebar_nav {
+    position: absolute;
+    top: 0;
+    width: var(--sidemenu_width);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar_nav li {
+    /*TODO: add a border on top/bottom to separate items.*/
+    line-height: 40px;
+    border-width: 10;
+}
+
+.sidebar_nav li a {
+    display: block;
+    text-decoration: none;
+    color: var(--menu_text_color);
+}
+
+.sidebar_nav li a:hover {
+    text-decoration: none;
+    color: var(--menu_text_color);
+    background: var(--nav_hover_color);
+}
+
+.sidebar_nav li a:active,
+.sidebar_nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar_title {
+    /* TODO: Add a permanent bg color to this to make it stand out */
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+
+
+
+/*============================================================================*/
+/*                                                                 MIDSECTION */
+/*============================================================================*/
+.midsection {
+    /*position: absolute;*/  /* Setting mid section to absolute interferes with width at narrow screens */
+    /*top: 200px;*/
+    padding-top: 30px;
+    background-color: var(--body_color);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+
+/*============================================================================*/
+/*                                                     PAGE CONTENT CONTAINER */
+/*============================================================================*/
+.page_content_container {
+    width: 100%;
+    /*position: absolute;*/
+    position: relative;
+    padding: 15px;
+}
+
+
+/*############################################################################*/
+/*                                                        TOGGLING PROPERTIES */
+/*############################################################################*/
+
+/* MIDSECTION */
+.midsection {
+    padding-left: var(--sidemenu_width);
+}
+
+.midsection.toggled {
+    padding-left: 0;
+}
+
+/* SIDEBAR */
+#sidebar_container {
+    width: var(--sidemenu_width);
+}
+
+.midsection.toggled #sidebar_container{
+    width: 0px;
+    padding: 0px;
+}
+
+/* TOGGLE BUTTON */
+#side_menu_toggle_button{
+    left: var(--sidemenu_width);
+}
+
+
+.midsection.toggled #side_menu_toggle_button{
+    left: 0px;
+}
+
+
+/*############################################################################*/
+/*                                                            SMALLER SCREENS */
+/*############################################################################*/
+@media(max-width:767px) {
+    /*========================================================================*/
+    /*                                                            MID SECTION */
+    /*========================================================================*/
+    .midsection {
+        padding-left: 0px;
+    }
+
+    .midsection.toggled {
+        padding-left: var(--sidemenu_width);
+    }
+
+    /*========================================================================*/
+    /*                                                 PAGE CONTENT CONTAINER */
+    /*========================================================================*/
+    .page_content_container {
+        padding: 20px;
+        position: absolute;
+    }
+
+    .midsection.toggled .page_content_container {
+        position: absolute;
+        /*margin-right: 0;*/
+    }
+
+    /*========================================================================*/
+    /*                                                                SIDEBAR */
+    /*========================================================================*/
+    #sidebar_container {
+        width: 0px;
+    }
+
+    .midsection.toggled #sidebar_container {
+        width: var(--sidemenu_width);
+    }
+
+    /*========================================================================*/
+    /*                                                          TOGGLE BUTTON */
+    /*========================================================================*/
+    #side_menu_toggle_button{
+        left: 0px;
+    }
+
+    .midsection.toggled #side_menu_toggle_button {
+        left: var(--sidemenu_width);
+    }
+}
