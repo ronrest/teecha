@@ -129,9 +129,8 @@
     <nav id="sidebar_container">
         <ul class="sidebar_nav">
             <li class="sidebar_title">
-                <a href="#">
-                    <!-- TODO: Add module name -->
-                    Module Home Page
+                <a href="{% url 'teecha:module' name=module_name %}">
+                    Module Home
                 </a>
             </li>
             <!-- TODO: highlight past items a slightly different color to make it easy to know what items are in the past/future -->
