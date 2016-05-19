@@ -84,6 +84,7 @@ def module_lesson(request, module, lesson):
     content = fix_lesson_urls(content, "/static/teecha/img")
     context = {
         "module_name": module.name,
+        "module_title": module.title,
         "content": content,
         "title": lesson.title,
         "video": lesson.video,
