@@ -90,6 +90,7 @@ def module_lesson(request, module, lesson):
         "title": lesson.title,
         "video": lesson.video,
         "lessons": lessons,
+        "num_lessons": len(lessons),
         "lesson_id":lesson.id,
     }
 
