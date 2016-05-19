@@ -77,6 +77,7 @@ def module_lesson(request, module, lesson):
     module = Module.objects.get(name=module)
     lessons = module.lessons.all().order_by("modulelesson__order")
     lesson = module.lessons.get(name=lesson)
+    lesson_num = lesson.modulelesson_set.get(module=module).order # assuming 1 indexing
 
 
 
@@ -85,13 +86,14 @@ def module_lesson(request, module, lesson):
     context = {
         "module_name": module.name,
         "module_title": module.title,
-        "lesson_num": lesson.modulelesson_set.get(module=module).order,
+        "lesson_num": lesson_num,
         "content": content,
         "title": lesson.title,
         "video": lesson.video,
         "lessons": lessons,
         "num_lessons": len(lessons),
         "lesson_id":lesson.id,
+        "next_lesson_name": lessons[lesson_num] if (lesson_num < len(lessons)) else None
     }
 
     return render(request, template_name="module_lesson.html", context=context)
