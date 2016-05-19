@@ -104,9 +104,13 @@
                 <li class="navbar-text" id="submenu_heading">{{module_title}} (lesson {{lesson_num}}/{{num_lessons}})</li>
                 <li class="">
                     <div class="right_buttons">
-                        <!-- TODO: populate the previous button  links -->
-                        <button type="button" class="btn btn-default navbar-btn">Previous</button>
-
+                        <!----------------------------------- PreviousButton -->
+                        {% if previous_lesson_name %}<a class="btn btn-default navbar-btn"
+                           href="{% url 'teecha:module_lesson' module=module_name lesson=previous_lesson_name %}">
+                            Previous
+                        </a>
+                        {% else %}<button type="button" class="btn btn-default navbar-btn">Previous</button>
+                        {% endif %}
                         <!---------------------------------- Forward Button -->
                         {% if next_lesson_name %}<a class="btn btn-default navbar-btn"
                            href="{% url 'teecha:module_lesson' module=module_name lesson=next_lesson_name %}">

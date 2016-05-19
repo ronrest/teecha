@@ -93,7 +93,9 @@ def module_lesson(request, module, lesson):
         "lessons": lessons,
         "num_lessons": len(lessons),
         "lesson_id":lesson.id,
-        "next_lesson_name": lessons[lesson_num] if (lesson_num < len(lessons)) else None
+        "next_lesson_name": lessons[lesson_num] if (lesson_num < len(lessons)) else None,
+        "previous_lesson_name": lessons[lesson_num - 2] if (lesson_num > 1) else None,
+
     }
 
     return render(request, template_name="module_lesson.html", context=context)
