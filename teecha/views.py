@@ -61,7 +61,6 @@ def module(request, name):
 
     context = {
         "title": module.title,
-        #"lessons": module.lessons.all().order_by("order"),
         "lessons": module.lessons.all().order_by("modulelesson"),
 
     }
