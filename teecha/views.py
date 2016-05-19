@@ -85,6 +85,7 @@ def module_lesson(request, module, lesson):
     context = {
         "module_name": module.name,
         "module_title": module.title,
+        "lesson_num": lesson.modulelesson_set.get(module=module).order,
         "content": content,
         "title": lesson.title,
         "video": lesson.video,
