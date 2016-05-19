@@ -78,7 +78,7 @@ def module_lesson(request, module, lesson):
     lessons = module.lessons.all().order_by("modulelesson__order")
     lesson = module.lessons.get(name=lesson)
 
-    lesson_id = lesson.id
+
 
     content = markdownify(lesson.content)
     content = fix_lesson_urls(content, "/static/teecha/img")
@@ -88,7 +88,7 @@ def module_lesson(request, module, lesson):
         "title": lesson.title,
         "video": lesson.video,
         "lessons": lessons,
-        "lesson_id": lesson_id,
+        "lesson_id":lesson.id,
     }
 
     return render(request, template_name="module_lesson.html", context=context)
