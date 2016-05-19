@@ -147,9 +147,10 @@ nav .active{
 }
 
 .sidebar_nav li {
-    /*TODO: add a border on top/bottom to separate items.*/
     line-height: 40px;
-    border-width: 10;
+    border-width: 0px 0px 1px 0px;
+    border-style: solid;
+    border-color: #999999;
 }
 
 .sidebar_nav li a {
