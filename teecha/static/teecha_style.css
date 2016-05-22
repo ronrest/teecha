@@ -175,6 +175,7 @@ nav .active{
     /* TODO: Add a permanent bg color to this to make it stand out */
     /* TODO: Make the hover color span the entire cell not just the text area */
 
+    background-color: #CCCCCC;
     height: 65px;
     font-size: 18px;
     line-height: 60px;
