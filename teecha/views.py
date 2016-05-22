@@ -83,7 +83,7 @@ def module_lesson(request, module, lesson):
     lesson = module.lessons.get(name=lesson)
     lesson_num = lesson.modulelesson_set.get(module=module).order # assuming 1 indexing
 
-
+    # TODO: enforce responsive images.
 
     content = markdownify(lesson.content)
     content = fix_lesson_urls(content, "/static/teecha/img")
