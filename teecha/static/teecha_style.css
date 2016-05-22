@@ -173,6 +173,8 @@ nav .active{
 
 .sidebar_title {
     /* TODO: Add a permanent bg color to this to make it stand out */
+    /* TODO: Make the hover color span the entire cell not just the text area */
+
     height: 65px;
     font-size: 18px;
     line-height: 60px;
