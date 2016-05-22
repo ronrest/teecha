@@ -26,7 +26,11 @@ def fix_lesson_urls(content, lesson_name):
 #                                                                          INDEX
 # ==============================================================================
 def index(request):
-    return HttpResponse("This is the index for teecha")
+    context = {
+        "mocklist": range(40),
+    }
+
+    return render(request, template_name="index.html", context=context)
 
 
 # ==============================================================================
