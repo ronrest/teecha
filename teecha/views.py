@@ -27,7 +27,7 @@ def fix_lesson_urls(content, lesson_name):
 # ==============================================================================
 def index(request):
     context = {
-        "mocklist": range(40),
+        "modules": Module.objects.all(),
     }
 
     return render(request, template_name="index.html", context=context)

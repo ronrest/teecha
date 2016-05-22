@@ -77,13 +77,16 @@
             <!--                                           GRID OF TUTORIALS -->
             <!----------------------------------------------------------------->
             <div class="row">
+            {% for module in modules %}
                 <div class="col-xs-6 col-lg-4">
-
-                    <h2>Title</h2>
-                    <p>Description of tutorial </p>
-                    <p><a class="btn btn-default" href="#" role="button">View
-                        Tutorial &raquo;</a></p>
+                    <h2>{{module.title}}</h2>
+                    <p>{{module.description}}</p>
+                    <p><a class="btn btn-default"
+                          href="{% url 'teecha:module' name=module.name %}"
+                          role="button">View Tutorial &raquo;
+                    </a></p>
                 </div><!--/.col-xs-6.col-lg-4-->
+            {% endfor %}
             </div><!--/row-->
             <!-- END OF GRID OF TUTORIALS -->
         </div><!--/.col-xs-12.col-sm-9-->
