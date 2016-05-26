@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<!-- Portions of code on this page relating to the sidebar were derived from
-     from the following page:
-     http://blackrockdigital.github.io/startbootstrap-simple-sidebar/
--->
-<head>
+{% extends "main_skeleton.html"%}
+{% load staticfiles%}
+
+{% block css_files %}
+    <link href="{% static 'teecha_style.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block header_code %}
     <!------------------------------------------------------------------------->
     <!--                                                                META -->
     <!------------------------------------------------------------------------->
@@ -14,15 +15,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <!------------------------------------------------------------------------->
-    <!--                                                             SCRIPTS -->
-    <!------------------------------------------------------------------------->
-    {% load static %}
-    <!-- JQuery JavaScript -->
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-
-    <!-- Bootstrap JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -30,69 +22,15 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+{% endblock %}
 
-    <!------------------------------------------------------------------------->
-    <!--                                                              STYLES -->
-    <!------------------------------------------------------------------------->
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-    <!-- Custom CSS -->
-    <link href="{% static 'teecha_style.css' %}" rel="stylesheet">
-
-    <!------------------------------------------------------------------------->
-    <!--                                                               TITLE -->
-    <!------------------------------------------------------------------------->
-    <!-- TODO: Add a title -->
-    <title>SOME TITLE</title>
-</head>
+<!-- Portions of code on this page relating to the sidebar were derived from
+     from the following page:
+     http://blackrockdigital.github.io/startbootstrap-simple-sidebar/
+-->
 
 
-
-
-
-
-<!--#########################################################################-->
-<!--#########################################################################-->
-<!--                                                                    BODY -->
-<!--#########################################################################-->
-<!--#########################################################################-->
-<body>
-<!--=========================================================================-->
-<!--                                                              TOP NAVBAR -->
-<!--=========================================================================-->
-<nav class="navbar navbar-fixed-top navbar-default" id="main_navbar">
-    <div class="container">
-        <!--------------------------------------------------------------------->
-        <!--                                                      NAV BUTTON -->
-        <!--------------------------------------------------------------------->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed"
-                    data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Website Title</a>
-        </div><!-- /.navbar-header -->
-
-        <!--------------------------------------------------------------------->
-        <!--                                                     NAV OPTIONS -->
-        <!--------------------------------------------------------------------->
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div><!-- /.nav-collapse -->
-    </div><!-- /.container -->
-</nav><!-- /.navbar -->
-<!-- END OF TOP NAVBAR -->
-
-<!-- TODO: Separate out the main webpage content, from the teecha content -->
+{% block content %}
 <!--=========================================================================-->
 <!--                                                        SECONDARY NAVBAR -->
 <!--=========================================================================-->
@@ -195,6 +133,4 @@ $("#side_menu_toggle_button").click(function(e) {
 });
 </script>
 
-</body>
-
-</html>
+{% endblock %}
