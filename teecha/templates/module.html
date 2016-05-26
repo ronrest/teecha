@@ -1,17 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>{{title}}</title>
-</head>
-<body>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--<link rel="icon" href="../../favicon.ico">-->
 
-<h1>{{title}}</h1>
-<h2>Lessons</h2>
-<ul>
-    {% for lesson in lessons %}
-    <li>{{lesson}}......{{lesson.id}}</li>
-    {% endfor %}
-</ul>
+    <title>SOME TITLE</title>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <!-- Bootstrap  -->
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+    {% load static %}
+
+    <link href="{% static 'teecha_style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+<!--=========================================================================-->
+<!--                                                              TOP NAVBAR -->
+<!--=========================================================================-->
+<nav class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+        <!--------------------------------------------------------------------->
+        <!--                                                      NAV BUTTON -->
+        <!--------------------------------------------------------------------->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Ronny Restrepo</a>
+        </div>
+
+        <!--------------------------------------------------------------------->
+        <!--                                                     NAV OPTIONS -->
+        <!--------------------------------------------------------------------->
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div><!-- /.nav-collapse -->
+    </div><!-- /.container -->
+</nav><!-- /.navbar -->
+
+
+<!--/////////////////////////////////////////////////////////////////////////-->
+<div class="container" id="teecha_home_content_container">
+    <!--=====================================================================-->
+    <!--                                                        MAIN CONTENT -->
+    <!--=====================================================================-->
+    <div class="row">
+        <div class="col-xs-12 col-sm-9">
+            <!--<h1>{{title}}</h1>-->
+
+                <!--href="{} url 'teecha:module' name=module.name "-->
+            <!----------------------------------------------------------------->
+            <!--                                                   JUMBOTRON -->
+            <!----------------------------------------------------------------->
+            <div class="jumbotron">
+                <h1>{{title}}</h1>
+            </div>
+            {{description}}
+
+            <h2>Lessons</h2>
+            <ul>
+                {% for lesson in lessons %}
+                <li><a href="{% url 'teecha:module_lesson' module=module.name lesson=lesson.name %}">{{lesson.title}}</a> </li>
+                {% endfor %}
+
+        </div><!--/.col-xs-12.col-sm-9-->
+    </div><!--/row-->
+
+    <!--<hr>-->
+    <!--<footer>-->
+        <!--<p>&copy; 2016 Ronny Restrepo.</p>-->
+    <!--</footer>-->
+
+</div><!--/.container-->
+
+
 </body>
 </html>

@@ -66,6 +66,8 @@ def module(request, name):
     context = {
         "title": module.title,
         "lessons": module.lessons.all().order_by("modulelesson"),
+        "description": module.description,
+        "module": module,
 
     }
 
