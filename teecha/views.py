@@ -4,7 +4,7 @@ import markdown
 from .models import Lesson, Module, ModuleLesson
 
 register = template.Library()
-
+main_site_template_dir = "main"  # relative to the root static directory /static
 
 # ==============================================================================
 #                                                                    MARKDOWNIFY
@@ -28,9 +28,10 @@ def fix_lesson_urls(content, lesson_name):
 def index(request):
     context = {
         "modules": Module.objects.all(),
+        "main_site_template_dir": main_site_template_dir,
     }
 
-    return render(request, template_name="index.html", context=context)
+    return render(request, template_name="teecha/index.html", context=context)
 
 
 # ==============================================================================
@@ -47,12 +48,13 @@ def lesson(request, id):
         "content": content,
         "title": lesson.title,
         "video": lesson.video,
+        "main_site_template_dir": main_site_template_dir,
     }
     # content = lesson.content
     # title = lesson.title
     # video = lesson.video
 
-    return render(request, template_name="lesson.html", context=context)
+    return render(request, template_name="teecha/lesson.html", context=context)
 
 
 # ==============================================================================
@@ -68,10 +70,11 @@ def module(request, name):
         "lessons": module.lessons.all().order_by("modulelesson"),
         "description": module.description,
         "module": module,
+        "main_site_template_dir": main_site_template_dir,
 
     }
 
-    return render(request, template_name="module.html", context=context)
+    return render(request, template_name="teecha/module.html", context=context)
 
 
 # ==============================================================================
@@ -102,7 +105,8 @@ def module_lesson(request, module, lesson):
         "lesson_id":lesson.id,
         "next_lesson_name": lessons[lesson_num] if (lesson_num < len(lessons)) else None,
         "previous_lesson_name": lessons[lesson_num - 2] if (lesson_num > 1) else None,
+        "main_site_template_dir": main_site_template_dir,
 
     }
 
-    return render(request, template_name="module_lesson.html", context=context)
+    return render(request, template_name="teecha/module_lesson.html", context=context)
