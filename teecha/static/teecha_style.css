@@ -16,11 +16,13 @@
     --myblue: #1A94D6;
 
     --submenu_color:  #F8F8F8; /* #99C45B #555555;*/
-    --sidebar_color: var(--menu_color);
 
-    --nav_hover_color: #FF8000;
-    --nav_active_color: #5085DA;  /*#1A94D6;*/
+    --sidemenu_width: 250px;
+    --sidebar_title_height: 65px;
+    --sidebar_color: var(--submenu_color); /**/
     --sidebar_title_bg_color: #777777;
+    --sidebar_active_color: #CCCCCC;  /*#1A94D6;*/
+    --sidebar_hover_color: #DDDDDD;
 
     --submenu_text_color: var(--menu_text_color);
 
@@ -28,10 +30,6 @@
     --text_color: #333333;
     --bold_color: #111111;
     --italic_color: #555555;
-
-    --sidemenu_width: 250px;
-
-
 
 }
 
@@ -74,7 +72,7 @@
     position: fixed ;
     z-index: 100;
     width: 25px;
-    height:100px;
+    height: calc(var(--sidebar_title_height) + 3px);
     padding-left: 2px;
 
     color: var(--menu_text_color);
@@ -101,7 +99,7 @@
     border-style: solid;
     border-width: 3px 3px 3px 0px;
     border-color: var(--submenu_text_color);
-    border-radius: 0px 0px 20px 0px ;
+    border-radius: 0px 0px 0px 0px ;
 
     background-color: var(--sidebar_color);
 
@@ -127,10 +125,11 @@
 
 .sidebar_nav li {
     /*TODO: Add padding to sides */
-    line-height: 40px;
+    /*line-height: 40px;*/
     border-width: 0px 0px 1px 0px;
     border-style: solid;
     border-color: #999999;
+    padding: 10px 20px;
 }
 
 .sidebar_nav li a {
@@ -139,10 +138,10 @@
     color: var(--menu_text_color);
 }
 
-.sidebar_nav li a:hover {
+.sidebar_nav li:hover {
     text-decoration: none;
     color: var(--menu_text_color);
-    background: var(--nav_hover_color);
+    background: var(--sidebar_hover_color);
 }
 
 .sidebar_nav li a:active,
@@ -150,15 +149,23 @@
     text-decoration: none;
 }
 
-    /* TODO: Make the hover color span the entire cell not just the text area */
+.sidebar_nav li.active{
+    background: var(--sidebar_active_color)
+}
 
-    background-color: #CCCCCC;
-    height: 65px;
 .sidebar_title {
     background-color: var(--sidebar_title_bg_color);
+    height: var(--sidebar_title_height);
     font-size: 18px;
-    line-height: 60px;
+    font-weight: bold;
+    /*line-height: 60px;*/
 }
+
+.sidebar_nav li.sidebar_title:hover {
+    background-color: var(--sidebar_title_bg_color);
+    color: #FFFFFF;
+}
+
 
 
 
