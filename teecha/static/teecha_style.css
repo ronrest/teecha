@@ -49,6 +49,9 @@
     border-radius: 0px;
     padding-right: 30px;
     padding-left: 30px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1em;
+    font-weight: normal;
 }
 
 .right_buttons{
@@ -59,7 +62,6 @@
 /* Had to set it up as an id so the color would work */
 #submenu_heading{
     text-align: center;
-    font-weight: bold;
     color: var(--submenu_text_color);
 }
 
