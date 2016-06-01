@@ -1,0 +1,29 @@
+:root{
+    --menu_color: #F8F8F8;
+    --menu_text_color: #5934B2;
+
+}
+
+/*============================================================================*/
+/*                                                                MAIN NAVBAR */
+/*============================================================================*/
+#main_navbar{
+    background-color: var(--menu_color);
+    color: var(--menu_text_color);
+    border: 0px;
+}
+
+#main_navbar .navbar-nav  a{
+  color: var(--menu_text_color);
+}
+
+
+nav .active{
+    background-color: var(--nav_active_color);
+}
+
+
+#main_navbar .navbar-nav > .active > a{
+  color: #ebebeb;
+  background-color: var(--nav_active_color);
+}

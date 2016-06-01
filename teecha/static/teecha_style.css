@@ -15,14 +15,12 @@
     --mygreen: #73AD21;
     --myblue: #1A94D6;
 
-    --menu_color: #F8F8F8;
     --submenu_color:  #F8F8F8; /* #99C45B #555555;*/
     --sidebar_color: var(--menu_color);
 
     --nav_hover_color: #FF8000;
     --nav_active_color: #5085DA;  /*#1A94D6;*/
 
-    --menu_text_color: #5934B2;
     --submenu_text_color: var(--menu_text_color);
 
     --body_color: #F3F3F3;
@@ -32,32 +30,12 @@
 
     --sidemenu_width: 250px;
 
+
+
 }
 
 
-/*============================================================================*/
-/*                                                                MAIN NAVBAR */
-/*============================================================================*/
-#main_navbar{
-    background-color: var(--menu_color);
-    color: var(--menu_text_color);
-    border: 0px;
-}
 
-#main_navbar .navbar-nav  a{
-  color: var(--menu_text_color);
-}
-
-
-nav .active{
-    background-color: var(--nav_active_color);
-}
-
-
-#main_navbar .navbar-nav > .active > a{
-  color: #ebebeb;
-  background-color: var(--nav_active_color);
-}
 
 
 /*============================================================================*/
