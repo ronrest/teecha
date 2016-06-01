@@ -1,8 +1,10 @@
 {% block lesson %}
 
 <h1>{{title}}</h1>
+{% if video != "" %}
 <iframe width="560" height="315" src="https://www.youtube.com/embed/{{video}}" frameborder="0" allowfullscreen></iframe>
 <h2>Content</h2>
+{% endif %}
 {{content|safe}}
 
 {% endblock %}
