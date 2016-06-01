@@ -20,6 +20,7 @@
 
     --nav_hover_color: #FF8000;
     --nav_active_color: #5085DA;  /*#1A94D6;*/
+    --sidebar_title_bg_color: #777777;
 
     --submenu_text_color: var(--menu_text_color);
 
@@ -149,12 +150,12 @@
     text-decoration: none;
 }
 
-.sidebar_title {
-    /* TODO: Add a permanent bg color to this to make it stand out */
     /* TODO: Make the hover color span the entire cell not just the text area */
 
     background-color: #CCCCCC;
     height: 65px;
+.sidebar_title {
+    background-color: var(--sidebar_title_bg_color);
     font-size: 18px;
     line-height: 60px;
 }
