@@ -6,13 +6,14 @@ from .models import Lesson, Module, ModuleLesson
 register = template.Library()
 main_site_template_dir = "main"  # relative to the root static directory /static
 
+
 # ==============================================================================
 #                                                                    MARKDOWNIFY
 # ==============================================================================
 @register.filter
 def markdownify(text):
     # safe_mode governs how the function handles raw HTML
-    return markdown.markdown(text, safe_mode='escape')
+    return markdown.markdown(text, extensions=['markdown.extensions.tables'])
 
 
 # ==============================================================================
