@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700);
+
 /*!
  * Style for the sidebar was derived from:
  *     http://blackrockdigital.github.io/startbootstrap-simple-sidebar/
@@ -291,4 +293,28 @@
     .midsection.toggled #side_menu_toggle_button {
         left: var(--sidemenu_width);
     }
+}
+
+
+
+body {
+    font-family: 'Droid Serif', serif;
+    color: #333333;
+
+}
+
+p{
+    /*font-family: 'Droid Serif', serif;
+    */font-size: 1.5em;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Droid Serif', serif;
+    color: #307EC7;
+}
+
+h1 {
+    font-weight: 700;
 }
