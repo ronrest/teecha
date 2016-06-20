@@ -13,7 +13,19 @@ main_site_template_dir = "main"  # relative to the root static directory /static
 @register.filter
 def markdownify(text):
     # safe_mode governs how the function handles raw HTML
-    return markdown.markdown(text, extensions=['markdown.extensions.tables'])
+    extension_configs = {
+        'markdown.extensions.codehilite':
+            {
+                'noclasses': True,
+                'use_pygments': True,
+                'linenums': False,
+                'guess_lang': False
+            }
+    }
+    return markdown.markdown(text, extensions=['markdown.extensions.tables',
+                                               'markdown.extensions.fenced_code',
+                                               'markdown.extensions.codehilite'],
+                             extension_configs=extension_configs)
 
 
 # ==============================================================================
@@ -111,3 +123,4 @@ def module_lesson(request, module, lesson):
     }
 
     return render(request, template_name="teecha/module_lesson.html", context=context)
+
