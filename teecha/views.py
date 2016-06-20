@@ -24,7 +24,8 @@ def markdownify(text):
     }
     return markdown.markdown(text, extensions=['markdown.extensions.tables',
                                                'markdown.extensions.fenced_code',
-                                               'markdown.extensions.codehilite'],
+                                               'markdown.extensions.codehilite',
+                                               'markdown.extensions.toc'],
                              extension_configs=extension_configs)
 
 
