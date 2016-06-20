@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load staticfiles%}
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,7 +10,7 @@
     <!--<link rel="icon" href="../../favicon.ico">-->
 
     <title>{{title}}</title>
-    <link href="static/main/styles.css" rel="stylesheet">
+    <link href="{% static 'main/css/styles.css' %}" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
     <!-- Bootstrap  -->
