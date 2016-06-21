@@ -8,12 +8,13 @@
 
 {% block content %}
 <!--/////////////////////////////////////////////////////////////////////////-->
-<div class="container" id="teecha_home_content_container">
+<!--<div class="container" id="teecha_home_content_container" style="background-color: red;">-->
+<div class="" id="teecha_home_content_container">
     <!--=====================================================================-->
     <!--                                                        MAIN CONTENT -->
     <!--=====================================================================-->
-    <div class="row">
-        <div class="col-xs-12 col-sm-9">
+    <!--<div class="row" style="background-color: red;">-->
+        <!--<div class="col-xs-12 col-sm-9">-->
             <!----------------------------------------------------------------->
             <!--                                                   JUMBOTRON -->
             <!----------------------------------------------------------------->
@@ -25,21 +26,39 @@
             <!----------------------------------------------------------------->
             <!--                                           GRID OF TUTORIALS -->
             <!----------------------------------------------------------------->
-            <div class="row">
+            <!--<div class="row" style="background-color: red;">-->
             {% for module in modules %}
-                <div class="col-xs-6 col-lg-4">
-                    <h2>{{module.title}}</h2>
-                    <p>{{module.description}}</p>
-                    <p><a class="btn btn-default"
-                          href="{% url 'teecha:module' name=module.name %}"
-                          role="button">View Tutorial &raquo;
-                    </a></p>
-                </div><!--/.col-xs-6.col-lg-4-->
+                <!-- ------------------------------------------------------- -->
+                <!--                                                    CELL -->
+                <!-- ------------------------------------------------------- -->
+                <!--<div class="col-xs-6 col-sm-4 col-lg-3 flip_meta_container">-->
+                <div class="flip_meta_container">
+                    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                        <div class="card">
+                            <div class="front">
+                                <!---------------------------- FRONT CONTENT -->
+                                <div class="card_content">
+                                    {{module.title}}
+                                </div> <!-- End of  card-content for front -->
+                            </div><!-- End of  front -->
+                            <div class="back">
+                                <!----------------------------- BACK CONTENT -->
+                                <div class="card_content">
+                                    <h2>{{module.title}}</h2>
+                                    <p>
+                                        {{module.description}}
+                                    </p>
+                                    <p><a class="btn btn-default read_more" href="{% url 'teecha:module' name=module.name %}" role="button">View Tutorial &raquo;</a></p>
+                                </div> <!-- End of  card-content for back -->
+                            </div> <!-- End of  back-->
+                        </div> <!-- End of  card -->
+                    </div> <!-- End of  flip-container -->
+                </div> <!-- End of flip_meta_container -->
             {% endfor %}
-            </div><!--/row-->
+            <!--</div>&lt;!&ndash;/row&ndash;&gt;-->
             <!-- END OF GRID OF TUTORIALS -->
-        </div><!--/.col-xs-12.col-sm-9-->
-    </div><!--/row-->
+        <!--</div>&lt;!&ndash;/.col-xs-12.col-sm-9&ndash;&gt;-->
+    <!--</div>&lt;!&ndash;/row&ndash;&gt;-->
 
     <!--<hr>-->
     <!--<footer>-->

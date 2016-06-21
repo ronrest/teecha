@@ -1,4 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700);
+@import 'https://fonts.googleapis.com/css?family=PT+Sans+Caption';
+@import 'https://fonts.googleapis.com/css?family=PT+Sans+Narrow';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300';
 
 /*!
  * Style for the sidebar was derived from:
@@ -7,6 +9,11 @@
  * Code licensed under the Apache License v2.0.
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
+
+
+
+
+
 
 
 /*============================================================================*/
@@ -55,6 +62,14 @@
     font-size: 1em;
     font-weight: normal;
 }
+
+.secondary_nav_bar li{
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1em;
+    font-weight: normal;
+}
+
+
 
 .right_buttons{
     right: 0px;
@@ -297,24 +312,121 @@
 
 
 
-body {
-    font-family: 'Droid Serif', serif;
-    color: #333333;
+
+
+
+
+/*============================================================================*/
+/*                                                                    FLIPPER */
+/*============================================================================*/
+/* Code for flipper derived from here: https://davidwalsh.name/css-flip       */
+
+/*----------------------------------------------------------------------------*/
+/*                                                            Card Properties */
+/*----------------------------------------------------------------------------*/
+.flip-container, .front, .back {
+    width: 280px;
+    /*min-width: 280px;*/
+	height: 300px;
+
 
 }
 
-p{
-    /*font-family: 'Droid Serif', serif;
-    */font-size: 1.5em;
+
+.flip_meta_container{
+    /*padding-top: 40px;*/
+    margin: 10px 10px;
+    float: left;
+}
+
+.card .front, .card .back {
+    border-radius: 25px;
+}
+
+/* Front of Card */
+.front{
+    color: #666666;
+    background-color: #CCCCCC;
+    font-family: 'PT Sans Caption', sans-serif;
+    font-size: 30px;
+    font-weight: 200;
+    text-align: center;
+}
+
+/* Back of Card */
+.back{
+    background-color: #FAAF3B;
+}
+
+.back, .back p{
     font-weight: 400;
-    line-height: 1.5;
+    color: #444444;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 1.1em;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Droid Serif', serif;
-    color: #307EC7;
-}
-
-h1 {
+.back h2{
     font-weight: 700;
+    background-color: #FAAF3B;
+    font-family: 'PT Sans Caption', sans-serif;
+    font-size: 1em;
 }
+
+
+
+
+/* Read More Button*/
+.flip-container .read_more{
+    position: absolute;
+    bottom:20px;
+    right: 20px;
+}
+
+/**/
+.card_content{
+    padding: 20px;
+}
+
+
+/*----------------------------------------------------------------------------*/
+/*                                             flipping transition properties */
+/*----------------------------------------------------------------------------*/
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000px;
+}
+
+/* flip the card when hovered */
+.flip-container:hover .card, .flip-container.hover .card {
+    transform: rotateY(180deg);
+}
+
+/* flip speed goes here */
+.card {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(180deg);
+}
+
+
